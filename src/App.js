@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {useState, useEffect} from 'react'
 
 const initMatrix = [];
 function App() {
   const [matrix, setMatrix] = useState(initMatrix);
-  const [matrixSize, setMatrixSize] = useState(3);
+  const [matrixSize] = useState(3);
   const [currentPlayer, setCurrentPlayer] = useState('o');
   const [selR, setSelR ] = useState(null);
   const [selC,setSelC] = useState(null)
@@ -14,7 +13,7 @@ function App() {
 
 
   useEffect(()=>{
-    const row = new Array (matrixSize).fill(null);
+    const row = new Array(matrixSize).fill(null);
     const tempMatrix = [];
     
 
@@ -22,7 +21,7 @@ function App() {
       tempMatrix.push([...row])
     }
     setMatrix(tempMatrix);
-  },[]);
+  },[matrixSize]);
 
 
 
